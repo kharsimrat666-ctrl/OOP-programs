@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+
+class Employee
+{
+private:
+    int id;
+    string name;
+
+public:
+    // Constructor
+    Employee(int i, string n)
+    {
+        id = i;
+        name = n;
+
+        cout << "Constructor called." << endl;
+    }
+
+    void display()
+    {
+        cout << "Employee ID: " << id << endl;
+        cout << "Employee Name: " << name << endl;
+    }
+
+    // Destructor
+    ~Employee()
+    {
+        cout << "Destructor called." << endl;
+    }
+};
+
+int main()
+{
+    Employee e(101, "Rahul");
+
+    e.display();
+
+    return 0;
+}
