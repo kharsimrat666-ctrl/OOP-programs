@@ -1,0 +1,70 @@
+#include <iostream>
+using namespace std;
+
+class Account
+{
+    int number;
+    string name;
+    int balance;
+
+public:
+    void getData()
+    {
+        cout << "Enter Account Number: ";
+        cin >> number;
+
+        cout << "Enter Name: ";
+        cin >> name;
+
+        cout << "Enter Balance: ";
+        cin >> balance;
+    }
+
+    void showData()
+    {
+        cout << "\nAccount Number: " << number;
+        cout << "\nName: " << name;
+        cout << "\nBalance: " << balance << endl;
+    }
+
+    int getNumber()
+    {
+        return number;
+    }
+};
+
+int main()
+{
+    Account a[3];
+    int i, searchNumber;
+
+    for(i = 0; i < 3; i++)
+    {
+        cout << "\nAccount " << i + 1 << endl;
+        a[i].getData();
+    }
+
+    cout << "\n--- Account Records ---\n";
+
+    for(i = 0; i < 3; i++)
+    {
+        a[i].showData();
+    }
+
+    cout << "\nEnter Account Number to search: ";
+    cin >> searchNumber;
+
+    for(i = 0; i < 3; i++)
+    {
+        if(a[i].getNumber() == searchNumber)
+        {
+            cout << "\nAccount Found!";
+            a[i].showData();
+            return 0;
+        }
+    }
+
+    cout << "\nAccount Not Found!";
+
+    return 0;
+}
