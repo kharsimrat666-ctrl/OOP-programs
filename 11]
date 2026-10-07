@@ -1,0 +1,248 @@
+
+   
+  #include <iostream>
+using namespace std;
+
+// ===============================
+// 1. SINGLE INHERITANCE
+// ===============================
+
+class Person
+{
+protected:
+    string name;
+
+public:
+
+    // Parameterized Constructor
+    Person(string n)
+    {
+        name = n;
+        cout << "Person Constructor" << endl;
+    }
+
+    // Destructor
+    ~Person()
+    {
+        cout << "Person Destructor" << endl;
+    }
+};
+
+// Student inherits Person
+class Student : public Person
+{
+public:
+
+    // Constructor
+    Student(string n) : Person(n)
+    {
+        cout << "Student Constructor" << endl;
+    }
+
+    void showStudent()
+    {
+        cout << "Student Name: " << name << endl;
+    }
+
+    // Destructor
+    ~Student()
+    {
+        cout << "Student Destructor" << endl;
+    }
+};
+
+
+// ===============================
+// 2. MULTILEVEL INHERITANCE
+// ===============================
+
+class Employee : public Person
+{
+protected:
+    int id;
+
+public:
+
+    Employee(string n, int i) : Person(n)
+    {
+        id = i;
+        cout << "Employee Constructor" << endl;
+    }
+
+    void showEmployee()
+    {
+        cout << "Employee Name: " << name << endl;
+        cout << "Employee ID: " << id << endl;
+    }
+
+    ~Employee()
+    {
+        cout << "Employee Destructor" << endl;
+    }
+};
+
+// Manager inherits Employee
+class Manager : public Employee
+{
+public:
+
+    Manager(string n, int i) : Employee(n, i)
+    {
+        cout << "Manager Constructor" << endl;
+    }
+
+    void showManager()
+    {
+        cout << "Manager Name: " << name << endl;
+        cout << "Manager ID: " << id << endl;
+    }
+
+    ~Manager()
+    {
+        cout << "Manager Destructor" << endl;
+    }
+};
+
+
+// ===============================
+// 3. HIERARCHICAL INHERITANCE
+// ===============================
+
+// Car and Bike both inherit Vehicle
+
+class Vehicle
+{
+protected:
+    string brand;
+
+public:
+
+    Vehicle(string b)
+    {
+        brand = b;
+        cout << "Vehicle Constructor" << endl;
+    }
+
+    ~Vehicle()
+    {
+        cout << "Vehicle Destructor" << endl;
+    }
+};
+
+class Car : public Vehicle
+{
+public:
+
+    Car(string b) : Vehicle(b)
+    {
+        cout << "Car Constructor" << endl;
+    }
+
+    void showCar()
+    {
+        cout << "Car Brand: " << brand << endl;
+    }
+
+    ~Car()
+    {
+        cout << "Car Destructor" << endl;
+    }
+};
+
+class Bike : public Vehicle
+{
+public:
+
+    Bike(string b) : Vehicle(b)
+    {
+        cout << "Bike Constructor" << endl;
+    }
+
+    void showBike()
+    {
+        cout << "Bike Brand: " << brand << endl;
+    }
+
+    ~Bike()
+    {
+        cout << "Bike Destructor" << endl;
+    }
+};
+
+
+// ===============================
+// 4. MULTIPLE INHERITANCE
+// ===============================
+
+class Teacher
+{
+public:
+
+    void teach()
+    {
+        cout << "Teacher can teach." << endl;
+    }
+};
+
+class Researcher
+{
+public:
+
+    void research()
+    {
+        cout << "Researcher can do research." << endl;
+    }
+};
+
+// Professor inherits TWO classes
+class Professor : public Teacher, public Researcher
+{
+public:
+
+    void showProfessor()
+    {
+        cout << "Professor uses both skills." << endl;
+    }
+};
+
+
+// ===============================
+// MAIN FUNCTION
+// ===============================
+
+int main()
+{
+    cout << "\n--- SINGLE INHERITANCE ---\n";
+
+    Student s("Rahul");
+    s.showStudent();
+
+
+    cout << "\n--- MULTILEVEL INHERITANCE ---\n";
+
+    Manager m("Amit", 101);
+    m.showManager();
+
+
+    cout << "\n--- HIERARCHICAL INHERITANCE ---\n";
+
+    Car c("Toyota");
+    c.showCar();
+
+    Bike b("Honda");
+    b.showBike();
+
+
+    cout << "\n--- MULTIPLE INHERITANCE ---\n";
+
+    Professor p;
+
+    p.teach();
+    p.research();
+    p.showProfessor();
+
+
+    cout << "\nProgram End\n";
+
+    return 0;
+}
