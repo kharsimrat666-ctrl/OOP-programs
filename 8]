@@ -1,0 +1,54 @@
+#include <iostream>
+using namespace std;
+
+class Person
+{
+protected:
+    string name;
+
+public:
+    Person(string n)
+    {
+        name = n;
+    }
+};
+
+class Employee : public Person
+{
+protected:
+    int employeeId;
+
+public:
+    Employee(string n, int id) : Person(n)
+    {
+        employeeId = id;
+    }
+};
+
+class Manager : public Employee
+{
+private:
+    string department;
+
+public:
+    Manager(string n, int id, string d) : Employee(n, id)
+    {
+        department = d;
+    }
+
+    void display()
+    {
+        cout << "Name: " << name << endl;
+        cout << "Employee ID: " << employeeId << endl;
+        cout << "Department: " << department << endl;
+    }
+};
+
+int main()
+{
+    Manager m("Rahul", 101, "IT");
+
+    m.display();
+
+    return 0;
+}
