@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+
+class Book
+{
+private:
+    int id;
+    string name;
+
+public:
+    // Default constructor
+    Book()
+    {
+        id = 0;
+        name = "Unknown";
+    }
+
+    // Parameterized constructor
+    Book(int i, string n)
+    {
+        id = i;
+        name = n;
+    }
+
+    // Constructor overloading
+    Book(int i)
+    {
+        id = i;
+        name = "C++ Book";
+    }
+
+    void display()
+    {
+        cout << "Book ID: " << id << endl;
+        cout << "Book Name: " << name << endl;
+    }
+};
+
+int main()
+{
+    Book b1;
+    Book b2(101, "Java Programming");
+    Book b3(102);
+
+    cout << "Book 1:" << endl;
+    b1.display();
+
+    cout << "\nBook 2:" << endl;
+    b2.display();
+
+    cout << "\nBook 3:" << endl;
+    b3.display();
+
+    return 0;
+}
