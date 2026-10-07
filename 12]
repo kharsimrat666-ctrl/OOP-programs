@@ -1,0 +1,42 @@
+#include <iostream>
+#include <string>
+
+// This allows us to use cout, endl, and string without writing std:: every time!
+using namespace std;
+
+class Student {
+public:
+    string name;
+    int age;
+
+    // 1. Parameterized Constructor
+    Student(string newName, int newAge) {
+        name = newName;
+        age = newAge;
+    }
+
+    // 2. Copy Constructor
+    Student(const Student &sourceObject) {
+        name = sourceObject.name;
+        age = sourceObject.age;
+        cout << "--- Copy constructor called! ---" << endl;
+    }
+
+    void display() {
+        cout << "Name: " << name << ", Age: " << age << endl;
+    }
+};
+
+int main() {
+    Student student1("Alice", 20);
+    cout << "Student 1 details: ";
+    student1.display();
+
+    // Copying student1 into student2
+    Student student2 = student1; 
+    
+    cout << "Student 2 details: ";
+    student2.display();
+
+    return 0;
+}
