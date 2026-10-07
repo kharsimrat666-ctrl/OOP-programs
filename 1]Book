@@ -1,0 +1,45 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+class Book
+{
+	private:
+		int bookId;
+		string title;
+		string author;
+		double price;
+
+	public:
+		void setData(int id, string t, string a, double p)
+		{
+			bookId = id;
+			title = t;
+			author = a;
+			price = p;
+		}
+
+		void display()
+		{
+			cout<<"Book ID: "<<bookId<<endl;
+			cout<<"Title: "<<title<<endl;
+			cout<<"Author: "<<author<<endl;
+			cout<<"Price: Rs. "<<price<<endl;
+		}
+};
+
+int main()
+{
+	Book b1, b2;
+
+	b1.setData(101, "C++ Programming", "Bjarne Stroustrup", 500);
+	b2.setData(102, "OOP", "Robert Lafore", 650);
+
+	cout<<"First Book Details:"<<endl;
+	b1.display();
+
+	cout<<"\nSecond Book Details:"<<endl;
+	b2.display();
+
+	return 0;
+}
