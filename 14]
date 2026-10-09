@@ -1,0 +1,22 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+class Book {
+    int bookId; string title; bool isIssued;            // private data
+public:
+    void setBook(int id, string t) { bookId = id; title = t; isIssued = false; }
+    void issueBook()  { isIssued = true; }              // mark issued
+    void returnBook() { isIssued = false; }             // mark returned
+    void displayStatus() {
+        cout << title << (isIssued ? " - Issued" : " - Available") << endl;
+    }
+};
+int main() {
+    Book b1, b2;
+    b1.setBook(1, "C++ Basics"); b2.setBook(2, "Java Basics");
+    b1.issueBook(); b1.displayStatus();                 // Issued
+    b1.returnBook(); b1.displayStatus();                // Available
+    b2.displayStatus();                                 // Available
+    return 0;
+}
