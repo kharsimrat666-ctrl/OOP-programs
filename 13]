@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+class Rectangle {
+public:
+    int width;
+    int height;
+
+    // This member function calculates and returns the area
+    int calculateArea() {
+        return width * height;
+    }
+};
+
+int main() { // The starting point where the program runs
+    
+    Rectangle rect; // Uses the class blueprint to create a real object named 'rect'
+    
+    // Assigning values to the object's variables
+    rect.width = 5;
+    rect.height = 10; 
+
+    // Prints the text and calls the function to display the calculated area on screen
+    cout << "Area of rectangle is: " << rect.calculateArea() << endl;
+
+    return 0; // Indicates that the program finished successfully
+}
